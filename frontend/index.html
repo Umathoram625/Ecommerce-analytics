@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Sales Analytics | Dynamic Production Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Chart.js 4.4+ -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="brand-text">
+                    <h2>ApexSales</h2>
+                    <span>Enterprise Analytics</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">ANALYTICS</div>
+                <a href="#overview" class="nav-item active" data-tab="overview">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <span>Executive Overview</span>
+                </a>
+                <a href="#trends" class="nav-item" data-tab="trends">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <span>Sales & Trends</span>
+                </a>
+                <a href="#categories" class="nav-item" data-tab="categories">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Categories & Products</span>
+                </a>
+                <a href="#geography" class="nav-item" data-tab="geography">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span>Regional Performance</span>
+                </a>
+                <a href="#customers" class="nav-item" data-tab="customers">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customer Intelligence</span>
+                </a>
+                <a href="#forecasting" class="nav-item" data-tab="forecasting">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>AI Sales Forecast</span>
+                </a>
+
+                <div class="nav-section-title">DATA MANAGEMENT</div>
+                <a href="#dataset" class="nav-item" data-tab="dataset">
+                    <i class="fa-solid fa-database"></i>
+                    <span>Dataset Manager</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text" id="dbStatus">PostgreSQL / SQLite Connected</span>
+                </div>
+                <div class="records-badge">
+                    <span id="sidebarTotalRecords">9,994</span> Records Live
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="page-title-group">
+                        <h1 id="pageHeading">Executive Overview</h1>
+                        <p id="pageSubheading">Real-time commercial performance metrics & dynamic financial intelligence</p>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary" id="btnExportCSV" title="Export Current Filtered Data">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                            <span>Export CSV</span>
+                        </button>
+                        <button class="btn btn-primary" id="btnOpenUploadModal">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Upload Dataset</span>
+                        </button>
+                        <button class="theme-toggle-btn" id="themeToggle" title="Toggle Light/Dark Theme">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dynamic Global Filter Bar -->
+            <section class="filter-bar-card">
+                <div class="filter-bar-header">
+                    <div class="filter-title">
+                        <i class="fa-solid fa-filter"></i>
+                        <span>Dynamic Multi-Dimensional Filters</span>
+                    </div>
+                    <button class="btn-text" id="btnResetFilters">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Filters
+                    </button>
+                </div>
+
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label for="filterStartDate">Start Date</label>
+                        <input type="date" id="filterStartDate" class="form-control">
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterEndDate">End Date</label>
+                        <input type="date" id="filterEndDate" class="form-control">
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterRegion">Region</label>
+                        <select id="filterRegion" class="form-control">
+                            <option value="all">All Regions</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterState">State</label>
+                        <select id="filterState" class="form-control">
+                            <option value="all">All States</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterCategory">Category</label>
+                        <select id="filterCategory" class="form-control">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterSubCategory">Sub-Category</label>
+                        <select id="filterSubCategory" class="form-control">
+                            <option value="all">All Sub-Categories</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterSegment">Customer Segment</label>
+                        <select id="filterSegment" class="form-control">
+                            <option value="all">All Segments</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterShipMode">Ship Mode</label>
+                        <select id="filterShipMode" class="form-control">
+                            <option value="all">All Modes</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 1: EXECUTIVE OVERVIEW -->
+            <section class="tab-pane active" id="pane-overview">
+                <!-- 6 Metric KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card" id="kpiTotalSalesCard">
+                        <div class="kpi-icon-box sales">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                        <div class="kpi-info">
+                            <span class="kpi-label">TOTAL SALES</span>
+                            <h3 class="kpi-value" id="kpiTotalSales">$0.00</h3>
+                            <span class="kpi-subtext" id="kpiSalesGrowth"><i class="fa-solid fa-chart-line"></i> Dynamic calculation</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card" id="kpiTotalProfitCard">
+                        <div class="kpi-icon-box profit">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <div class="kpi-info">
+                            <span class="kpi-label">TOTAL NET PROFIT</span>
+                            <h3 class="kpi-value" id="kpiTotalProfit">$0.00</h3>
+                            <span class="kpi-subtext" id="kpiProfitMarginTag">Margin: 0.0%</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon-box orders">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <div class="kpi-info">
+                            <span class="kpi-label">TOTAL ORDERS</span>
+                            <h3 class="kpi-value" id="kpiTotalOrders">0</h3>
+                            <span class="kpi-subtext" id="kpiTotalUnits">0 units sold</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon-box customers">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="kpi-info">
+                            <span class="kpi-label">UNIQUE CUSTOMERS</span>
+                            <h3 class="kpi-value" id="kpiTotalCustomers">0</h3>
+                            <span class="kpi-subtext">Active accounts</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon-box aov">
+                            <i class="fa-solid fa-receipt"></i>
+                        </div>
+                        <div class="kpi-info">
+                            <span class="kpi-label">AVG ORDER VALUE (AOV)</span>
+                            <h3 class="kpi-value" id="kpiAOV">$0.00</h3>
+                            <span class="kpi-subtext">Revenue per order</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon-box margin">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <div class="kpi-info">
+                            <span class="kpi-label">PROFIT MARGIN</span>
+                            <h3 class="kpi-value" id="kpiProfitMargin">0.00%</h3>
+                            <span class="kpi-subtext" id="kpiAvgDiscount">Avg Discount: 0.0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Overview Charts Grid -->
+                <div class="charts-row">
+                    <div class="chart-card flex-2">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-chart-area"></i>
+                                <span>Monthly Sales & Profit Trajectory</span>
+                            </div>
+                            <span class="chart-tag">Continuous Monthly Series</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="overviewTrendChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card flex-1">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-chart-pie"></i>
+                                <span>Category Revenue Share</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="overviewCategoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Snapshot Tables Grid -->
+                <div class="charts-row">
+                    <div class="chart-card flex-1">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-trophy"></i>
+                                <span>Top 5 Revenue Generating Products</span>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Category</th>
+                                        <th>Sales</th>
+                                        <th>Profit</th>
+                                        <th>Margin</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="overviewTopProductsBody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="chart-card flex-1">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-map-pin"></i>
+                                <span>Regional Revenue & Margin Breakdown</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="overviewRegionalChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: SALES & TRENDS -->
+            <section class="tab-pane" id="pane-trends">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <div class="chart-title">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            <span>Detailed Monthly Sales, Profit & MoM Growth Dynamics</span>
+                        </div>
+                    </div>
+                    <div class="chart-container-tall">
+                        <canvas id="detailedTrendChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card-box mt-4">
+                    <div class="chart-card-header">
+                        <div class="chart-title">
+                            <i class="fa-solid fa-table-list"></i>
+                            <span>Monthly Financial Ledger</span>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table" id="monthlyLedgerTable">
+                            <thead>
+                                <tr>
+                                    <th>Period (YYYY-MM)</th>
+                                    <th>Month</th>
+                                    <th>Sales Revenue</th>
+                                    <th>Net Profit</th>
+                                    <th>Orders</th>
+                                    <th>Profit Margin</th>
+                                    <th>MoM Growth (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="monthlyLedgerBody">
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: CATEGORIES & PRODUCTS -->
+            <section class="tab-pane" id="pane-categories">
+                <div class="charts-row">
+                    <div class="chart-card flex-1">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-diagram-project"></i>
+                                <span>Sub-Category Revenue & Margin Analysis</span>
+                            </div>
+                        </div>
+                        <div class="chart-container-tall">
+                            <canvas id="subCategoryChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card flex-1">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                <span>Bottom Loss-Making Products (Margin Drainage)</span>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Category</th>
+                                        <th>Sales</th>
+                                        <th>Loss / Profit</th>
+                                        <th>Margin</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bottomProductsBody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-box mt-4">
+                    <div class="chart-card-header">
+                        <div class="chart-title">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                            <span>Top Performing Products Catalog</span>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table" id="allProductsTable">
+                            <thead>
+                                <tr>
+                                    <th>Product ID</th>
+                                    <th>Product Name</th>
+                                    <th>Category</th>
+                                    <th>Sub-Category</th>
+                                    <th>Units Sold</th>
+                                    <th>Total Revenue</th>
+                                    <th>Net Profit</th>
+                                    <th>Profit Margin</th>
+                                </tr>
+                            </thead>
+                            <tbody id="allProductsBody">
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: REGIONAL PERFORMANCE -->
+            <section class="tab-pane" id="pane-geography">
+                <div class="charts-row">
+                    <div class="chart-card flex-1">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-earth-americas"></i>
+                                <span>Regional Sales Comparison</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="detailedRegionalChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card flex-1">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-chart-column"></i>
+                                <span>Top 10 States by Commercial Revenue</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="topStatesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-box mt-4">
+                    <div class="chart-card-header">
+                        <div class="chart-title">
+                            <i class="fa-solid fa-flag-usa"></i>
+                            <span>State-Level Profitability & Revenue Rankings</span>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>State</th>
+                                    <th>Region</th>
+                                    <th>Sales Revenue</th>
+                                    <th>Net Profit</th>
+                                    <th>Total Orders</th>
+                                    <th>Profit Margin (%)</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="stateRankingBody">
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: CUSTOMER INTELLIGENCE -->
+            <section class="tab-pane" id="pane-customers">
+                <div class="charts-row">
+                    <div class="chart-card flex-1">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-user-group"></i>
+                                <span>Customer Segment Revenue Distribution</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="customerSegmentChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card flex-1">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-cubes-stacked"></i>
+                                <span>RFM Behavioral Cohort Distribution</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="rfmCohortChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-box mt-4">
+                    <div class="chart-card-header">
+                        <div class="chart-title">
+                            <i class="fa-solid fa-medal"></i>
+                            <span>Top 10 Customer Leaderboard (Lifetime Value)</span>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Segment</th>
+                                    <th>Total Spend</th>
+                                    <th>Net Profit</th>
+                                    <th>Orders Placed</th>
+                                    <th>Avg Order Value (AOV)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="topCustomerLeaderboardBody">
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: AI SALES FORECASTING -->
+            <section class="tab-pane" id="pane-forecasting">
+                <div class="card-box mb-4">
+                    <div class="forecast-control-bar">
+                        <div class="forecast-title-group">
+                            <div class="forecast-badge">
+                                <i class="fa-solid fa-robot"></i> Statistical Time-Series AI
+                            </div>
+                            <h3>Predictive Sales & Profit Forecasting</h3>
+                            <p>Additive Holt-Winters & Linear Trend Seasonality Model with 95% Confidence Bounds</p>
+                        </div>
+                        <div class="forecast-actions">
+                            <div class="form-inline-group">
+                                <label for="forecastMetric">Target Metric:</label>
+                                <select id="forecastMetric" class="form-control">
+                                    <option value="sales">Sales Revenue</option>
+                                    <option value="profit">Net Profit</option>
+                                </select>
+                            </div>
+                            <div class="form-inline-group">
+                                <label for="forecastHorizon">Forecast Horizon:</label>
+                                <select id="forecastHorizon" class="form-control">
+                                    <option value="3">3 Months</option>
+                                    <option value="6" selected>6 Months</option>
+                                    <option value="12">12 Months</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" id="btnRunForecast">
+                                <i class="fa-solid fa-play"></i> Re-estimate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <div class="chart-title">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span id="forecastChartHeading">Sales Revenue Forecast Trajectory (95% Confidence Band)</span>
+                        </div>
+                        <div class="model-metrics" id="forecastMetricsBadge">
+                            <span>MAE: $0.00</span> | <span>RMSE: $0.00</span>
+                        </div>
+                    </div>
+                    <div class="chart-container-tall">
+                        <canvas id="forecastChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 7: DATASET MANAGER -->
+            <section class="tab-pane" id="pane-dataset">
+                <div class="dataset-manager-grid">
+                    <div class="card-box">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                <span>Upload Custom E-Commerce CSV Dataset</span>
+                            </div>
+                        </div>
+                        <p class="section-desc">
+                            Upload your raw e-commerce CSV transactions. The automatic data engine will normalize column names, parse dates, eliminate duplicate orders, validate financial ranges, and immediately recalculate all dashboard analytics.
+                        </p>
+                        <div class="dropzone" id="datasetDropzone">
+                            <i class="fa-solid fa-file-csv dropzone-icon"></i>
+                            <h4>Drag & Drop your CSV file here</h4>
+                            <p>or click to browse files (Max 50MB)</p>
+                            <input type="file" id="csvFileInput" accept=".csv" class="hidden-input">
+                        </div>
+                        <div class="upload-progress-container hidden" id="uploadProgressContainer">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="uploadProgressBar"></div>
+                            </div>
+                            <span id="uploadProgressText">Processing and validating dataset...</span>
+                        </div>
+                    </div>
+
+                    <div class="card-box">
+                        <div class="chart-card-header">
+                            <div class="chart-title">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>Dataset Health & Quick Actions</span>
+                            </div>
+                        </div>
+                        <div class="dataset-stats-list">
+                            <div class="stat-row">
+                                <span>Active Database Engine:</span>
+                                <strong id="datasetDbEngine">PostgreSQL / SQLite</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>Total Transactions:</span>
+                                <strong id="datasetTotalRows">9,994 records</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>Historical Date Range:</span>
+                                <strong id="datasetDateRange">2014-01-03 to 2017-12-30</strong>
+                            </div>
+                        </div>
+                        <hr class="card-divider">
+                        <div class="quick-actions-box">
+                            <h4>Maintenance Utilities</h4>
+                            <p>Reset all records back to the default bundled Sample Superstore dataset.</p>
+                            <button class="btn btn-danger" id="btnResetDataset">
+                                <i class="fa-solid fa-trash-arrow-up"></i> Reset to Sample Dataset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-box mt-4">
+                    <div class="chart-card-header">
+                        <div class="chart-title">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            <span>Recent Ingestion & Validation Audit Logs</span>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Filename</th>
+                                    <th>File Size</th>
+                                    <th>Total Rows</th>
+                                    <th>Valid Ingested</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="auditLogsBody">
+                                <!-- Dynamic audit logs -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal-overlay hidden" id="uploadModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-cloud-arrow-up"></i> Upload CSV Dataset</h3>
+                <button class="modal-close-btn" id="btnCloseUploadModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="dropzone modal-dropzone" id="modalDropzone">
+                    <i class="fa-solid fa-file-csv dropzone-icon"></i>
+                    <h4>Select or drop your CSV file</h4>
+                    <p>Supported columns: Order ID, Order Date, Sales, Profit, Customer, Category, etc.</p>
+                    <input type="file" id="modalCsvFileInput" accept=".csv" class="hidden-input">
+                </div>
+                <div id="modalUploadStatus" class="upload-status-box hidden"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="btnCancelModal">Cancel</button>
+                <button class="btn btn-primary" id="btnSubmitModalUpload" disabled>Start Ingestion</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Modular Application Scripts -->
+    <script src="/static/js/utils.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/charts.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
