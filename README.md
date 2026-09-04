@@ -1,246 +1,249 @@
-# 📊 E-Commerce Commercial & Sales Analytics (End-to-End Enterprise Project)
+# 📊 E-Commerce Sales Analytics Platform (Fully Dynamic Enterprise Edition)
 
-[![Python](https://img.shields.io/badge/Python-3.11-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
-[![Pandas](https://img.shields.io/badge/Pandas-2.0+-150458.svg?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![SQLite](https://img.shields.io/badge/SQLite-3.30+-003B57.svg?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
-[![PowerBI](https://img.shields.io/badge/Power%20BI-DAX%20%26%20Modeling-F2C811.svg?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Python](https://img.shields.io/badge/Python-3.10%20%7C%203.11-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0+-D71F00.svg?logo=sqlalchemy&logoColor=white)](https://www.sqlalchemy.org/)
+[![Chart.js](https://img.shields.io/badge/Chart.js-4.4+-FF6384.svg?logo=chartdotjs&logoColor=white)](https://www.chartjs.org/)
+[![Render](https://img.shields.io/badge/Render-Cloud%20Deploy-46E3B7.svg?logo=render&logoColor=black)](https://render.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-An enterprise-grade, portfolio-ready **Data Analytics & Business Intelligence** project analyzing **9,994 e-commerce transactions** across 4 years (2014–2017). Designed to evaluate revenue drivers, margin degradation thresholds, customer behavioral cohorts, and regional supply chain logistics.
+An enterprise-grade, fully dynamic **E-Commerce Commercial & Sales Analytics** web application powered by **51,290 real-world transactional records** spanning 4 full calendar years (2011–2014) across 147 countries.
+
+Every KPI, trend chart, ranking table, pagination ledger, and business insight is **100% dynamically calculated on-the-fly** from the underlying database in response to user filter selections. **Zero hardcoded metrics or manufactured dates.**
 
 ---
 
-## 📌 Executive Summary & Key Performance Indicators (KPIs)
+## 📌 Executive Summary & Dynamic Dataset Metrics
 
-All metrics are **100% empirically derived and reconciled** across Python, SQLite, and Power BI:
+All metrics across the full 4-year transactional dataset are empirically computed:
 
-```
+```text
 ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
 │     TOTAL REVENUE      │  │       NET PROFIT       │  │     PROFIT MARGIN      │
-│     $2,297,200.86      │  │      $286,397.02       │  │         12.47%         │
+│     $12,642,501.91     │  │     $1,467,457.29      │  │         11.61%         │
 └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
 ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
 │      TOTAL ORDERS      │  │      TOTAL UNITS       │  │   AVG ORDER VALUE      │
-│         5,009          │  │         37,873         │  │        $458.61         │
+│         25,035         │  │        178,312         │  │        $504.99         │
 └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
 ┌────────────────────────┐  ┌────────────────────────┐  ┌────────────────────────┐
-│    UNIQUE CUSTOMERS    │  │   AVG DISCOUNT RATE    │  │   AVG SHIPPING DAYS    │
-│      793 accounts      │  │         15.62%         │  │       3.96 days        │
+│    UNIQUE CUSTOMERS    │  │   AVG DISCOUNT RATE    │  │     RETURNED ORDERS    │
+│     1,590 accounts     │  │         14.29%         │  │   1,172 (4.68% rate)   │
 └────────────────────────┘  └────────────────────────┘  └────────────────────────┘
 ```
 
 ---
 
-## 🏗️ Project Architecture & Star Schema Data Model
+## 📂 Dataset Specification
 
-The data pipeline decouples raw data into an optimized **Star Schema** designed for Power BI's in-memory **VertiPaq columnar engine** and relational SQL engines:
+The platform utilizes the complete **Global Superstore** transactional dataset merged with the verified **Returns** ledger:
 
-```
-                         ┌─────────────────────────────┐
-                         │         DimCustomer         │
-                         │ ─────────────────────────── │
-                         │ * customer_id (PK)          │
-                         │   customer_name, segment    │
-                         │   recency, frequency        │
-                         │   monetary, rfm_segment     │
-                         └──────────────┬──────────────┘
-                                        │ 1
-                                        │
-                                        │ *
-┌────────────────────────┐              │              ┌────────────────────────┐
-│       DimProduct       │              │              │      DimGeography      │
-│ ────────────────────── │              │              │ ────────────────────── │
-│ * product_id (PK)      │ 1            │            1 │ * postal_code (PK)     │
-│   category             │──────────────┼──────────────│   city, state          │
-│   sub_category         │ *            │            * │   region, country      │
-│   product_name         │              │              │                        │
-└────────────────────────┘              │              └────────────────────────┘
-                                        ▼
-                         ┌─────────────────────────────┐
-                         │          FactSales          │
-                         │ ─────────────────────────── │
-                         │ * row_id (PK)               │
-                         │   order_id                  │
-                         │   order_date (FK)           │
-                         │   customer_id (FK)          │
-                         │   postal_code (FK)          │
-                         │   product_id (FK)           │
-                         │   ship_mode_id (FK)         │
-                         │   sales, quantity           │
-                         │   discount, profit          │
-                         │   shipping_days             │
-                         └──────────────▲──────────────┘
-                                        │ *
-                         ┌──────────────┴──────────────┐
-                         │ * 1                         │ * 1
-          ┌──────────────┴─────────────┐ ┌─────────────┴──────────────┐
-          │          DimDate           │ │        DimShipping         │
-          │ ────────────────────────── │ │ ────────────────────────── │
-          │ * date (PK)                │ │ * ship_mode_id (PK)        │
-          │   year, quarter, month     │ │   ship_mode                │
-          │   year_month, week, day    │ │   sla_target_days          │
-          └────────────────────────────┘ └────────────────────────────┘
-```
+* **Source Provider**: Tableau Community / Kaggle Open Analytics
+* **Total Transactions**: 51,290 line items
+* **Unique Orders**: 25,035 commercial orders
+* **Date Range**: January 1, 2011 – December 31, 2014 (48 continuous months)
+* **Geographic Coverage**: 147 Countries, 7 Global Markets (`APAC`, `EU`, `US`, `LATAM`, `EMEA`, `Africa`, `Canada`), 13 Sub-Regions
+* **Product Hierarchy**: 3 Categories (`Technology`, `Furniture`, `Office Supplies`), 17 Subcategories, 10,292 distinct SKU references
+* **Customer Base**: 1,590 registered corporate, consumer, and home office accounts
+* **Returns Volume**: 1,172 real-world recorded returns ($632,544.75 returned merchandise)
+
+### Data Dictionary
+
+| Column Name | Type | Description |
+| :--- | :--- | :--- |
+| `row_id` | Integer | Unique surrogate identifier for each transaction line item |
+| `order_id` | String | Commercial order identifier (e.g., `CA-2014-100006`, `IN-2013-77878`) |
+| `order_date` | Date | Date when the order was placed (`YYYY-MM-DD`) |
+| `ship_date` | Date | Date when the order was dispatched |
+| `ship_mode` | String | Logistics fulfillment tier: `Same Day`, `First Class`, `Second Class`, `Standard Class` |
+| `customer_id` | String | Unique customer identifier |
+| `customer_name` | String | Full name of the commercial buyer |
+| `segment` | String | Customer market classification: `Consumer`, `Corporate`, `Home Office` |
+| `city` / `state` | String | Local delivery destination |
+| `country` | String | Sovereign nation (147 unique nations) |
+| `postal_code` | String | Postal/ZIP delivery code |
+| `market` | String | Macro trade territory (`APAC`, `EU`, `US`, `LATAM`, `EMEA`, `Africa`, `Canada`) |
+| `region` | String | Sub-continental geographic sales division |
+| `product_id` | String | Catalog product identifier |
+| `category` | String | High-level category: `Technology`, `Furniture`, `Office Supplies` |
+| `sub_category` | String | Specific merchandise classification (17 subcategories) |
+| `product_name` | String | Full title of the purchased product |
+| `sales` | Float | Net sales revenue generated ($ USD) |
+| `quantity` | Integer | Total units purchased in the line item |
+| `discount` | Float | Fractional discount applied (0.00 to 0.85) |
+| `profit` | Float | Net operating profit or loss generated ($ USD) |
+| `shipping_cost` | Float | Freight logistics expense incurred ($ USD) |
+| `order_priority` | String | Urgency tier: `Critical`, `High`, `Medium`, `Low` |
+| `order_status` | String | Fulfillment outcome: `Completed` or `Returned` |
+| `is_returned` | Boolean | True if order appears in the Returns ledger |
+| `is_profitable` | Boolean | True if profit > 0 |
+| `is_discounted` | Boolean | True if discount > 0 |
+| `shipping_days` | Integer | Lead time days elapsed between order date and ship date |
+| `profit_margin` | Float | Ratio of net profit to gross sales revenue (`profit / sales`) |
+| `year` / `quarter` / `month` | Derived | Calendar partition attributes for rapid filtering and aggregation |
 
 ---
 
-## 📂 Project Repository Structure
+## 🏗️ Architecture & Technology Stack
+
+The application employs a decoupled modern web architecture designed for low latency, sub-second query execution, and high analytical throughput:
 
 ```text
-Ecommerce-Sales-Analytics/
-│
-├── data/
-│   ├── raw/
-│   │   └── Sample_Superstore.csv              # Source immutable dataset (9,994 rows, 21 cols)
-│   ├── cleaned/
-│   │   ├── superstore_cleaned.csv             # Enriched master dataset (9,994 rows, 28 cols)
-│   │   ├── FactSales.csv                      # Fact table (9,994 rows, 17 cols)
-│   │   ├── DimCustomer.csv                    # Customer dimension with RFM tags (793 rows)
-│   │   ├── DimProduct.csv                     # Product dimension (1,862 rows)
-│   │   ├── DimGeography.csv                   # Geography dimension (631 postal codes)
-│   │   ├── DimShipping.csv                    # Shipping modes with SLA targets (4 rows)
-│   │   └── DimDate.csv                        # Continuous calendar dimension (1,464 dates)
-│   ├── analytics/
-│   │   └── customer_rfm.csv                   # Customer RFM scores and segment tags
-│   └── database/
-│       └── superstore.db                      # Indexed SQLite database
-│
-├── notebooks/
-│   ├── 01_data_cleaning_and_quality.ipynb     # Profiling, cleaning & zero-padded zip codes
-│   ├── 02_exploratory_data_analysis.ipynb     # Statistical distributions, seasonality & margins
-│   └── 03_customer_rfm_analysis.ipynb         # Quintile scoring & RFM behavioral modeling
-│
-├── sql/
-│   ├── 06_business_analysis.sql               # 25 production-grade SQL queries (CTEs, Window Functions)
-│   └── query_results/                         # 25 CSV result files from SQL query executions
-│
-├── reports/
-│   ├── data_cleaning_report.md                # Data cleaning log & before-and-after audit
-│   ├── eda_report.md                          # Statistical EDA report with Q1–Q10 answers
-│   ├── sql_analysis_report.md                 # SQL query results & business interpretations
-│   ├── rfm_customer_analysis.md               # RFM customer segmentation report
-│   ├── powerbi_data_model.md                  # Star Schema relationship & VertiPaq documentation
-│   ├── dax_measures.md                        # 28 production DAX formulas & reconciled values
-│   ├── powerbi_dashboard_blueprint.md         # 5-page interactive dashboard wireframes & guide
-│   ├── strategic_business_recommendations.md  # 5-Pillar executive recommendations
-│   └── resume_and_interview_prep.md           # STAR resume bullet points & interview Q&A
-│
-├── dashboard_images/                          # 8 High-resolution analytical charts
-│   ├── 01_monthly_sales_profit_trend.png
-│   ├── 02_category_performance.png
-│   ├── 03_subcategory_profitability.png
-│   ├── 04_regional_performance.png
-│   ├── 05_discount_impact_on_margins.png
-│   ├── 06_top10_products_sales.png
-│   ├── 07_top10_customers.png
-│   └── 08_state_profitability_comparison.png
-│
-├── dashboard_images/rfm/                      # 7 Customer RFM charts
-│   ├── 01_rfm_customer_distribution.png
-│   ├── 02_rfm_revenue_contribution.png
-│   ├── 03_rfm_profit_contribution.png
-│   ├── 04_recency_vs_monetary_scatter.png
-│   ├── 05_frequency_vs_monetary_scatter.png
-│   ├── 06_top10_customers_sales.png
-│   └── 07_top10_customers_profit.png
-│
-├── scripts/
-│   ├── clean_data.py                          # Reproducible data cleaning script
-│   ├── run_eda_analysis.py                    # Metric computation script
-│   ├── render_eda_charts.py                   # Matplotlib chart generator
-│   ├── execute_sql_analysis.py                # SQLite query runner & CSV exporter
-│   ├── run_rfm_segmentation.py                # RFM model execution pipeline
-│   └── build_powerbi_assets.py                # Star Schema dimension & fact exporter
-│
-├── requirements.txt                           # Pinned Python dependencies
-├── .gitignore                                 # Git configuration
-└── README.md                                  # Portfolio documentation
+[ Browser Client ]  <--->  [ REST API Layer ]  <--->  [ Analytics Engine ]  <--->  [ Database Layer ]
+ Vanilla JS (ES6+)          FastAPI (Python 3.11)      SQLAlchemy 2.0 ORM          SQLite 3 (Local)
+ Chart.js 4.4               Pydantic v2 Schemas        Pandas Data Pipeline        PostgreSQL (Cloud)
+ Responsive CSS3            Gunicorn / Uvicorn         In-Memory Caching           Composite B-Tree Indexes
 ```
 
----
-
-## 🔍 Key Validated Business Insights
-
-### 1. The 20% Discount Margin Destruction Cliff
-* Orders with **0% discount** deliver a **+29.51% profit margin ($320,987.60 profit)**.
-* Orders with **1%–20% discount** deliver a **+11.82% margin ($90,337.31 profit)**.
-* **Every discount tier above 20% exhibits negative cumulative profit**:
-  * `21%–30% discount`: -$10,369.28 profit (-10.05% margin)
-  * `31%–40% discount`: -$25,448.19 profit (-19.44% margin)
-  * `>40% discount`: -$100,559.41 profit (-81.74% margin)
-* Overall, **1,871 transactions (18.72% of all orders)** are loss-making, generating **-$156,131.29 in cumulative losses**.
-
-### 2. Category Performance & Sub-Category Deficits
-* **Technology**: **$836,154.03 sales (36.40%)** generated **$145,454.95 profit (50.79% of total company profit)** at a **17.39% margin**.
-* **Office Supplies**: **$719,047.03 sales (31.30%)** yielded **$122,490.80 profit (42.77% of company profit)** at a **17.03% margin**.
-* **Furniture**: Severe operational drag, generating **$741,999.80 in sales (32.30%)** but yielding only **$18,451.27 in profit (6.44% of company profit)** at a **2.49% margin**, burdened by deficits in **Tables (-$17,725.48)** and **Bookcases (-$3,472.56)**.
-
-### 3. Customer RFM Segmentation & At-Risk VIP Accounts
-* **Champions + Loyal Customers** (33.42% of customer base) drive **49.31% of total revenue ($1.13M)**.
-* **At-Risk VIP Cohort**: **101 customer accounts (12.74% of base)** that historically drove **$445,804.88 in sales (19.41%)** and **$72,315.11 in profit (25.25%)** at a high **16.22% margin** have been inactive for an average of **268.4 days** (~9 months).
-* **Sean Miller Anomaly**: The largest customer by revenue ($25,043.05 spend) generated a **cumulative loss of -$1,980.74** due to deep equipment discounting.
-
-### 4. Regional Profitability & 10 Deficit States
-* **West Region** ranks #1 in profitability with **$108,418.45 profit (14.94% margin)**.
-* **Top 5 Deficit States**: **Texas (-$25.7K)**, **Ohio (-$17.0K)**, **Pennsylvania (-$15.6K)**, **Illinois (-$12.6K)**, and **North Carolina (-$7.5K)** generated **-$78,359.50 in cumulative losses** due to average localized discount rates between 28.4% and 39.0%.
+### Core Technologies
+* **Backend**: FastAPI 0.109+, Python 3.10 / 3.11, Uvicorn ASGI server.
+* **ORM & Database**: SQLAlchemy 2.0+ with optimized multi-column composite indexes (`order_date`, `year`, `category`, `market`, `customer_id`).
+* **Frontend**: Vanilla JavaScript (ES6+ modular controllers), HTML5 semantic markup, CSS3 custom design tokens (supporting Dark Mode and Light Mode).
+* **Visualization**: Chart.js 4.4+ with dual-axis sales/profit combination charts, doughnut distributions, horizontal category bars, polar area RFM diagrams, and 95% confidence interval forecast bands.
+* **Cloud Infrastructure**: Render Web Service configuration via `render.yaml` with persistent volume mount and PostgreSQL database support.
 
 ---
 
-## 💡 Strategic Recommendations & Projected Financial Impact
+## 🌐 Complete REST API Reference (18 Endpoints)
 
-| Strategic Pillar | Validated Problem Identified | Proposed Tactical Intervention | Projected Annual Profit Impact |
-| :--- | :--- | :--- | :--- |
-| **1. Discount Capping** | -$156.1K lost in discounts > 20% | Hard-cap standard sales rep discounts at 20%; require VP approval for exceptions. | **+$75,000 to +$100,000 Profit** |
-| **2. Furniture Restructuring** | -$21.2K lost in Tables & Bookcases | Require tables to be sold as bundled office suites with high-margin chairs; delist worst 15 SKUs. | **+$15,000 to +$20,000 Profit** |
-| **3. At-Risk Account Retention** | $445.8K revenue at risk of lapse | Proactive VIP account manager outreach and automated CRM replenishment triggers. | **+$35,000 to +$50,000 Retained Margin** |
-| **4. Regional Deficit Fix** | -$78.4K lost across TX, OH, PA, IL, NC | Eliminate state promo coupon codes; align sales quotas with Gross Margin $ rather than revenue. | **+$35,000 to +$45,000 Profit** |
-| **Total Estimated Bottom-Line Uplift** | | | **+$160,000 to +$215,000 Net Profit** |
+All endpoints accept standard multi-dimensional filter query parameters:
+* `year` (e.g. `2014`)
+* `quarter` (e.g. `Q3`)
+* `month` (e.g. `8`)
+* `country` (e.g. `United States`, `Germany`)
+* `region` (e.g. `Western Europe`, `Central`)
+* `category` (e.g. `Technology`)
+* `sub_category` (e.g. `Phones`, `Chairs`)
+* `segment` (e.g. `Consumer`, `Corporate`)
+* `ship_mode` (e.g. `Second Class`)
+* `order_status` (e.g. `Completed`, `Returned`)
+
+### Endpoint Catalog
+
+| HTTP Method | Endpoint Path | Description & Response Model |
+| :--- | :--- | :--- |
+| `GET` | `/api/v1/analytics/summary` | Core executive KPIs (Revenue, Profit, Margin %, Orders, Units, Customers, AOV, Returns, Shipping). |
+| `GET` | `/api/v1/analytics/sales-trend` | Monthly sales progression, YoY growth percentage, 3-month rolling average, cumulative running totals. |
+| `GET` | `/api/v1/analytics/profit-trend` | Monthly net profit trajectory, profit margin percentages, and count of loss-making transactions. |
+| `GET` | `/api/v1/analytics/categories` | High-level category performance breakdown (Sales, Profit, Margin %, Units, Orders). |
+| `GET` | `/api/v1/analytics/subcategories` | 17 Subcategory profitability rankings, sorted by net profit contribution. |
+| `GET` | `/api/v1/analytics/top-products` | Top N products sorted by sales revenue or net profit (supports `limit=10`). |
+| `GET` | `/api/v1/analytics/loss-making-products` | Deepest loss-generating products (negative margin audit with average discount analysis). |
+| `GET` | `/api/v1/analytics/customers/rfm` | Behavioral RFM segmentation breakdown (Champions, Loyalists, At Risk, Hibernating, etc.). |
+| `GET` | `/api/v1/analytics/customers/top` | Top individual customer accounts by total revenue spend and lifetime net profit contribution. |
+| `GET` | `/api/v1/analytics/geography` | Regional and national commercial performance across 147 countries and 7 global markets. |
+| `GET` | `/api/v1/analytics/shipping` | Supply chain logistics breakdown by shipping tier (average duration days, freight costs, margin). |
+| `GET` | `/api/v1/analytics/discounts` | Discount elasticity tiers (`0%`, `1-10%`, `11-20%`, `21-30%`, `31-50%`, `>50%`) and margin destruction impact. |
+| `GET` | `/api/v1/analytics/orders` | Paginated, searchable transaction ledger (`page`, `page_size`, `search` query). |
+| `GET` | `/api/v1/analytics/returns` | Order return audit, return rate analysis, top returned products, and repeat return customer accounts. |
+| `GET` | `/api/v1/analytics/insights` | Dynamic, rule-based natural language insights generated directly from filtered dataset metrics. |
+| `GET` | `/api/v1/analytics/forecast` | Linear trend trajectory with Holt-Winters seasonal decomposition and 95% confidence intervals. |
+| `GET` | `/api/v1/analytics/export/csv` | Streams a dynamic RFC-4180 compliant CSV export containing all records matching active filters. |
+| `GET` | `/api/v1/filters/options` | Returns dynamically populated distinct filter options (available years, markets, categories, segments). |
 
 ---
 
-## 🛠️ Technology Stack & Methodologies
+## 🔬 Analytical Methodologies & Formulas
 
-* **Python & Pandas**: Automated data ingestion, data type validation, 5-digit postal code zero-padding (`str.zfill(5)`), and Star Schema decoupling.
-* **SQL / SQLite**: 25 enterprise analytical queries utilizing Common Table Expressions (CTEs), Window Functions (`DENSE_RANK`, `RANK`, `LAG`, `SUM() OVER`), and running totals.
-* **Power BI & DAX**: 5-page dashboard architecture, Star Schema relationship modeling, and 28 production DAX measures (`TOTALYTD`, `SAMEPERIODLASTYEAR`, `DATESINPERIOD`).
-* **RFM Customer Modeling**: Statistical quintile scoring (`pd.qcut`) segmenting 793 accounts into 9 actionable behavioral cohorts.
+### 1. Profitability & Margin
+$$\text{Gross Profit} = \sum \text{profit}$$
+$$\text{Profit Margin (\%)} = \left( \frac{\sum \text{profit}}{\sum \text{sales}} \right) \times 100$$
+$$\text{Average Order Value (AOV)} = \frac{\sum \text{sales}}{\text{COUNT}(\text{DISTINCT } \text{order\_id})}$$
+
+### 2. Customer RFM Behavioral Segmentation
+Customers are scored along three behavioral dimensions calculated relative to the latest transaction date:
+* **Recency (R)**: Days elapsed since the customer's most recent completed order.
+* **Frequency (F)**: Total number of distinct orders completed by the customer.
+* **Monetary (M)**: Cumulative net sales revenue generated by the customer.
+
+Using quintile distributions ($1$ to $5$ score), customers are segmented into 9 actionable behavioral cohorts:
+* **Champions** ($R \ge 4, F \ge 4, M \ge 4$): High frequency, recent buyers, large commercial basket sizes.
+* **Loyal Customers** ($F \ge 3, M \ge 3$): Consistent recurring purchasing cadence.
+* **Potential Loyalists** ($R \ge 4, F \ge 2$): Recent buyers with high potential for repeat purchase expansion.
+* **At Risk VIPs** ($R \le 2, F \ge 3, M \ge 3$): High-value historical buyers who haven't ordered in 6+ months.
+* **Can't Lose Them** ($R = 1, F \ge 4, M \ge 4$): Former key accounts facing critical lapse risk.
+* **Hibernating / Lost** ($R \le 2, F \le 2$): Infrequent, low-spend accounts with prolonged inactivity.
+
+### 3. Product Returns Analysis
+$$\text{Return Rate (\%)} = \left( \frac{\text{COUNT}(\text{DISTINCT Returned Orders})}{\text{COUNT}(\text{DISTINCT Total Orders})} \right) \times 100$$
+All returns are linked to the master order record via exact `order_id` join, tracking both refunded revenue volume and reverse logistics freight impacts.
 
 ---
 
-## 🚀 How to Run the Project
+## 🚀 Quick Start & Local Execution
 
-### 1. Clone Repository & Install Dependencies
+### 1. Prerequisites
+* Python 3.10 or 3.11 installed.
+* Git installed.
+
+### 2. Clone Repository & Setup Virtual Environment
 ```bash
-git clone https://github.com/your-username/Ecommerce-Sales-Analytics.git
-cd Ecommerce-Sales-Analytics
+git clone https://github.com/johnyarrabolu/Ecommerce-sales-analytics.git
+cd Ecommerce-sales-analytics
+
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2. Execute Data Pipeline
+### 3. Ingest Dataset & Build Database
+The ingestion script cleans the raw transactional data, parses ISO dates, coerces numeric fields, maps Returns, computes derived metrics, and bulk-inserts all 51,290 records into the SQLite database with full index coverage:
+
 ```bash
-# Run data cleaning and export Star Schema tables
-python scripts/clean_data.py
-
-# Run statistical EDA & generate charts
-python scripts/render_eda_charts.py
-
-# Run SQLite database builder & 25 SQL queries
-python scripts/execute_sql_analysis.py
-
-# Run RFM customer segmentation model
-python scripts/run_rfm_segmentation.py
-
-# Export Power BI Star Schema dimension CSVs
-python scripts/build_powerbi_assets.py
+# Ingest data into local database
+python scripts/ingest_data.py --source data/raw/Global_Superstore.csv --rebuild-db
 ```
 
-### 3. Open in Power BI Desktop
-1. Open Power BI Desktop $ightarrow$ **Get Data $ightarrow$ Text/CSV**.
-2. Select all CSV files from `data/cleaned/`.
-3. In **Model View**, verify 1-to-Many relationships and mark `DimDate` as Date Table.
-4. Copy DAX formulas from `reports/dax_measures.md` and follow the layout in `reports/powerbi_dashboard_blueprint.md`.
+### 4. Execute Standalone SQL Business Queries
+Validate all 25 production SQL queries against the local database:
+```bash
+python scripts/execute_sql_analysis.py
+```
+This executes all 25 queries, validates non-empty result sets, outputs query runtimes, saves results to `sql/query_results/`, and creates `sql/06_business_analysis.sql`.
+
+### 5. Launch Application Server
+Start the local FastAPI development server:
+```bash
+python run_server.py
+```
+* **Dashboard UI**: [http://localhost:8000](http://localhost:8000)
+* **Interactive OpenAPI Swagger Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+* **ReDoc API Documentation**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+
+---
+
+## ☁️ Cloud Deployment (Render)
+
+This repository includes turnkey deployment configuration for **[Render](https://render.com/)**:
+
+1. Fork or push this repository to your GitHub account.
+2. Sign in to your Render dashboard and click **New +** -> **Blueprint**.
+3. Connect your repository. Render will automatically detect the `render.yaml` specification:
+   * **Service Type**: Web Service (Python 3.11)
+   * **Build Command**: `pip install -r requirements.txt && python scripts/ingest_data.py`
+   * **Start Command**: `gunicorn backend.app.main:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT`
+   * **Disk Storage**: Optional 1GB persistent disk mounted to `/var/data` for SQLite, or connection string to a managed PostgreSQL database via `DATABASE_URL`.
+4. Click **Apply**. Render will build the environment, seed the dataset, and launch the application on a live HTTPS URL.
+
+---
+
+## 🔒 Automated Verification & Tests
+
+To run the automated endpoint validation test suite:
+```bash
+python scratch/test_endpoints.py
+```
+This suite sends requests to all 18 endpoints, verifying HTTP 200 responses, schema contract validation, and dynamic filtering recalculation.
 
 ---
 
 ## 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -103,15 +103,15 @@ ORDER BY year ASC, quarter ASC;
 -- ==============================================================================
 -- Query 06: Aggregated Monthly Seasonality
 SELECT 
-    month_number,
-    month,
+    month AS month_number,
+    month_name AS month,
     COUNT(DISTINCT order_id) AS total_orders,
     ROUND(SUM(sales), 2) AS cumulative_sales,
     ROUND(SUM(profit), 2) AS cumulative_profit,
     ROUND((SUM(profit) / SUM(sales)) * 100, 2) AS profit_margin_pct
 FROM superstore_sales
-GROUP BY month_number, month
-ORDER BY month_number ASC;
+GROUP BY month, month_name
+ORDER BY month ASC;
 
 
 -- ==============================================================================

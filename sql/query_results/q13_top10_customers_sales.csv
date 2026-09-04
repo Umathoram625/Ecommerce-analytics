@@ -1,11 +1,11 @@
 customer_id,customer_name,segment,total_orders,units_purchased,total_spend,total_profit,profit_margin_pct,sales_rank
-SM-20320,Sean Miller,Home Office,5,50,25043.05,-1980.74,-7.91,1
-TC-20980,Tamara Chand,Corporate,5,42,19052.22,8981.32,47.14,2
-RB-19360,Raymond Buch,Consumer,6,71,15117.34,6976.1,46.15,3
-TA-21385,Tom Ashbrook,Home Office,4,36,14595.62,4703.79,32.23,4
-AB-10105,Adrian Barton,Consumer,10,73,14473.57,5444.81,37.62,5
-KL-16645,Ken Lonsdale,Consumer,12,113,14175.23,806.85,5.69,6
-SC-20095,Sanjit Chand,Consumer,9,87,14142.33,5757.41,40.71,7
-HL-15040,Hunter Lopez,Consumer,6,50,12873.3,5622.43,43.68,8
-SE-20110,Sanjit Engle,Consumer,11,78,12209.44,2650.68,21.71,9
-CC-12370,Christopher Conant,Consumer,5,34,12129.07,2177.05,17.95,10
+TA-21385,Tom Ashbrook,Home Office,25,239,35668.12,6274.99,17.59,1
+GT-14710,Greg Tran,Consumer,30,284,34471.89,5164.85,14.98,2
+TC-20980,Tamara Chand,Corporate,28,209,34218.27,8787.47,25.68,3
+SM-20320,Sean Miller,Home Office,21,139,31125.29,-1083.67,-3.48,4
+BW-11110,Bart Watters,Corporate,35,316,30613.62,3337.47,10.9,5
+HL-15040,Hunter Lopez,Consumer,20,199,29664.23,7657.5,25.81,6
+SE-20110,Sanjit Engle,Consumer,36,286,29532.63,5863.62,19.85,7
+PS-19045,Penelope Sewall,Home Office,26,259,29252.32,4426.2,15.13,8
+RB-19360,Raymond Buch,Consumer,25,248,29197.63,8523.95,29.19,9
+ZC-21910,Zuschuss Carroll,Consumer,37,333,28472.82,452.5,1.59,10

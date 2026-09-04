@@ -1,11 +1,11 @@
 state,region,order_count,total_sales,total_profit,profit_margin_pct,avg_discount_pct,state_group
+England,North,699,485170.97,99907.73,20.59,7.02,Top 5 Profitable
 California,West,1021,457687.63,76381.39,16.69,7.28,Top 5 Profitable
 New York,East,562,310876.27,74038.55,23.82,5.53,Top 5 Profitable
-Washington,West,256,138641.27,33402.65,24.09,6.4,Top 5 Profitable
-Michigan,Central,117,76269.61,24463.19,32.07,0.71,Top 5 Profitable
-Virginia,South,115,70636.72,18597.95,26.33,0.0,Top 5 Profitable
-North Carolina,South,136,55603.16,-7490.91,-13.47,28.35,Bottom 5 Deficit
-Illinois,Central,276,80166.1,-12607.89,-15.73,39.0,Bottom 5 Deficit
-Pennsylvania,East,288,116511.91,-15559.96,-13.35,32.86,Bottom 5 Deficit
+Ile-de-France,Central,468,317822.54,44055.92,13.86,5.17,Top 5 Profitable
+New South Wales,Oceania,388,270487.1,43695.98,16.15,8.78,Top 5 Profitable
+Izmir,EMEA,59,15161.92,-15729.8,-103.75,60.0,Bottom 5 Deficit
 Ohio,East,236,78258.14,-16971.38,-21.69,32.49,Bottom 5 Deficit
 Texas,Central,487,170188.05,-25729.36,-15.12,37.02,Bottom 5 Deficit
+Lagos,Africa,150,17185.33,-25922.51,-150.84,70.0,Bottom 5 Deficit
+Istanbul,EMEA,202,31037.46,-29033.7,-93.54,60.0,Bottom 5 Deficit

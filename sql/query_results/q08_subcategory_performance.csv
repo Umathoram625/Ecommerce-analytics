@@ -1,18 +1,18 @@
 category,sub_category,total_orders,units_sold,total_sales,total_profit,profit_margin_pct,profit_rank
-Technology,Copiers,68,234,149528.03,55617.82,37.2,1
-Technology,Phones,814,3289,330007.05,44515.73,13.49,2
-Technology,Accessories,718,2976,167380.32,41936.64,25.05,3
-Office Supplies,Paper,1191,5178,78479.21,34053.57,43.39,4
-Office Supplies,Binders,1316,5974,203412.73,30221.76,14.86,5
-Furniture,Chairs,576,2356,328449.1,26590.17,8.1,6
-Office Supplies,Storage,777,3158,223843.61,21278.83,9.51,7
-Office Supplies,Appliances,451,1729,107532.16,18138.01,16.87,8
-Furniture,Furnishings,877,3563,91705.16,13059.14,14.24,9
-Office Supplies,Envelopes,249,906,16476.4,6964.18,42.27,10
-Office Supplies,Art,731,3000,27118.79,6527.79,24.07,11
-Office Supplies,Labels,346,1400,12486.31,5546.25,44.42,12
-Technology,Machines,112,440,189238.63,3384.76,1.79,13
-Office Supplies,Fasteners,215,914,3024.28,949.52,31.4,14
-Office Supplies,Supplies,187,647,46673.54,-1189.1,-2.55,15
-Furniture,Bookcases,224,868,114880.0,-3472.56,-3.02,16
-Furniture,Tables,307,1241,206965.53,-17725.48,-8.56,17
+Technology,Copiers,2120,7454,1509436.27,258567.55,17.13,1
+Technology,Phones,3133,11870,1706824.14,216717.01,12.7,2
+Furniture,Bookcases,2284,8310,1466572.24,161924.42,11.04,3
+Office Supplies,Appliances,1686,6078,1011064.31,141680.59,14.01,4
+Furniture,Chairs,3187,12336,1501681.76,140396.27,9.35,5
+Technology,Accessories,2889,10946,749237.02,129626.31,17.3,6
+Office Supplies,Storage,4534,16917,1127085.86,108461.49,9.62,7
+Office Supplies,Binders,5392,21429,461911.51,72449.85,15.68,8
+Office Supplies,Paper,3234,12822,244291.72,59207.68,24.24,9
+Technology,Machines,1422,4906,779060.07,58867.87,7.56,10
+Office Supplies,Art,4366,16301,372091.97,57953.91,15.58,11
+Furniture,Furnishings,2965,11225,385578.26,46967.43,12.18,12
+Office Supplies,Envelopes,2310,8380,170904.3,29601.12,17.32,13
+Office Supplies,Supplies,2281,8543,243074.22,22583.26,9.29,14
+Office Supplies,Labels,2460,9322,73404.03,15010.51,20.45,15
+Office Supplies,Fasteners,2304,8390,83242.32,11525.42,13.85,16
+Furniture,Tables,836,3083,757041.92,-64083.39,-8.46,17

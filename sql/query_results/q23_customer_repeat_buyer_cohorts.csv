@@ -1,5 +1,5 @@
 buyer_cohort,customer_count,customer_pct
-5-9 Orders (Frequent),510,64.31
-2-4 Orders (Occasional),183,23.08
-10+ Orders (Power Buyer),88,11.1
-1 Order (One-Time Buyer),12,1.51
+10+ Orders (Power Buyer),875,55.03
+5-9 Orders (Frequent),509,32.01
+2-4 Orders (Occasional),196,12.33
+1 Order (One-Time Buyer),10,0.63

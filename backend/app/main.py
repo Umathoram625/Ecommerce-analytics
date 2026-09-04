@@ -22,12 +22,16 @@ async def lifespan(app: FastAPI):
         count = db.query(SaleTransaction).count()
         if count == 0:
             print("Database is empty. Checking for default sample dataset...")
+            env_source = os.getenv("DATA_FILE") or os.getenv("DATA_SOURCE")
             sample_paths = [
+                env_source,
+                os.path.join("data", "raw", "Global_Superstore.csv"),
+                os.path.join("data", "raw", "Global_Superstore.xlsx"),
                 settings.DEFAULT_DATA_PATH,
                 settings.CLEANED_DATA_PATH,
                 os.path.join("data", "raw", "Sample_Superstore.csv"),
-                os.path.join("data", "cleaned", "superstore_cleaned.csv")
             ]
+            sample_paths = [p for p in sample_paths if p]
             found = False
             for p in sample_paths:
                 if os.path.exists(p):

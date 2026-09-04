@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy import Column, Integer, Float, String, Date, DateTime, Text, Index
+from sqlalchemy import Column, Integer, Float, String, Date, DateTime, Text, Index, Boolean
 from backend.app.core.database import Base
 
 class SaleTransaction(Base):
@@ -18,10 +18,11 @@ class SaleTransaction(Base):
     segment = Column(String(50), index=True, nullable=False)
     
     # Geography
-    country = Column(String(100), default="United States")
+    country = Column(String(100), index=True, default="United States")
     city = Column(String(100), index=True, nullable=False)
     state = Column(String(100), index=True, nullable=False)
     postal_code = Column(String(20), index=True, nullable=True)
+    market = Column(String(50), index=True, default="Global")
     region = Column(String(50), index=True, nullable=False)
     
     # Product
@@ -35,22 +36,36 @@ class SaleTransaction(Base):
     quantity = Column(Integer, nullable=False)
     discount = Column(Float, default=0.0)
     profit = Column(Float, nullable=False)
+    unit_price = Column(Float, default=0.0)
+    shipping_cost = Column(Float, default=0.0)
+    order_priority = Column(String(30), default="Medium")
     
-    # Derived Dimensions
+    # Status & Flags
+    order_status = Column(String(30), index=True, default="Completed")
+    is_returned = Column(Boolean, default=False, index=True)
+    is_profitable = Column(Boolean, default=True, index=True)
+    is_discounted = Column(Boolean, default=False, index=True)
+    
+    # Derived Date Dimensions
     shipping_days = Column(Integer, default=0)
     profit_margin = Column(Float, default=0.0)
     year = Column(Integer, index=True, nullable=False)
+    quarter = Column(String(10), index=True, nullable=True)
     month = Column(Integer, index=True, nullable=False)
     month_name = Column(String(20), nullable=True)
-    quarter = Column(String(10), nullable=True)
+    week = Column(Integer, nullable=True)
+    day = Column(Integer, nullable=True)
+    day_of_week = Column(String(15), nullable=True)
     year_month = Column(String(10), index=True, nullable=False)
 
     created_at = Column(DateTime, default=datetime.utcnow)
 
-    # Multi-column indexes for ultra-fast multi-parameter filtering
+    # Multi-column indexes for ultra-fast multi-parameter analytical filtering
     __table_args__ = (
-        Index("idx_sales_filter_composite", "order_date", "region", "category", "segment"),
+        Index("idx_sales_filter_comp", "year", "region", "category", "segment"),
         Index("idx_sales_ym_cat", "year_month", "category"),
+        Index("idx_sales_country_market", "country", "market"),
+        Index("idx_sales_status_date", "order_status", "order_date"),
     )
 
 

@@ -1,50 +1,238 @@
 product_name,category,sub_category,total_sales,total_loss,avg_discount_pct,profit_margin_pct,transaction_count
 Cubify CubeX 3D Printer Double Head Print,Technology,Machines,11099.96,-8879.97,53.33,-80.0,3
 Lexmark MX611dhe Monochrome Laser Printer,Technology,Machines,16829.9,-4589.97,40.0,-27.27,4
+"Motorola Smart Phone, Cordless",Technology,Phones,38931.04,-4447.04,11.83,-11.42,23
 Cubify CubeX 3D Printer Triple Head Print,Technology,Machines,7999.98,-3839.99,50.0,-48.0,1
+"Bevis Round Table, Adjustable Height",Furniture,Tables,5654.8,-3649.89,46.0,-64.55,5
+"Bevis Computer Table, Fully Assembled",Furniture,Tables,11177.9,-3509.56,35.31,-31.4,13
+"Rogers Lockers, Blue",Office Supplies,Storage,28214.59,-2893.49,14.36,-10.26,42
 Chromcraft Bull-Nose Wood Oval Conference Tables & Bases,Furniture,Tables,9917.64,-2876.12,28.0,-29.0,5
+"Bevis Wood Table, with Bottom Storage",Furniture,Tables,11134.66,-2782.59,32.0,-24.99,10
+"Barricks Conference Table, Rectangular",Furniture,Tables,3663.83,-2487.97,35.0,-67.91,3
+"Bevis Conference Table, Fully Assembled",Furniture,Tables,14886.95,-2443.09,30.25,-16.41,8
+"Lesro Round Table, Adjustable Height",Furniture,Tables,3960.62,-2402.98,43.4,-60.67,5
+"Lesro Computer Table, Fully Assembled",Furniture,Tables,7223.26,-2322.84,40.0,-32.16,7
+"Eldon Lockers, Blue",Office Supplies,Storage,19255.32,-2181.1,19.92,-11.33,36
+"Hoover Stove, White",Office Supplies,Appliances,32842.6,-2180.63,13.44,-6.64,18
+"Samsung Audio Dock, with Caller ID",Technology,Phones,7661.95,-2137.22,12.35,-27.89,20
+"Hoover Stove, Silver",Office Supplies,Appliances,10316.16,-2093.09,22.13,-20.29,8
+"Safco Library with Doors, Traditional",Furniture,Bookcases,11997.74,-1972.9,26.13,-16.44,15
+"Bush Library with Doors, Pine",Furniture,Bookcases,9028.39,-1949.63,23.36,-21.59,11
 Bush Advantage Collection Racetrack Conference Table,Furniture,Tables,9544.73,-1934.4,35.0,-20.27,7
+"Barricks Conference Table, Adjustable Height",Furniture,Tables,6425.51,-1924.85,31.0,-29.96,5
+"Hon Conference Table, Rectangular",Furniture,Tables,7588.29,-1920.85,39.5,-25.31,6
+"Barricks Round Table, Adjustable Height",Furniture,Tables,3232.08,-1880.67,41.67,-58.19,3
 GBC DocuBind P400 Electric Binding System,Office Supplies,Binders,17965.07,-1878.17,45.0,-10.45,6
+"Chromcraft Conference Table, with Bottom Storage",Furniture,Tables,13700.92,-1850.33,25.56,-13.51,9
+"Barricks Conference Table, with Bottom Storage",Furniture,Tables,6500.74,-1838.37,28.0,-28.28,5
+"SAFCO Executive Leather Armchair, Red",Furniture,Chairs,25640.13,-1833.17,16.19,-7.15,21
+"Chromcraft Round Table, Fully Assembled",Furniture,Tables,3576.75,-1823.08,43.33,-50.97,3
 Cisco TelePresence System EX90 Videoconferencing Unit,Technology,Machines,22638.48,-1811.08,50.0,-8.0,1
+"Barricks Round Table, with Bottom Storage",Furniture,Tables,3635.95,-1715.33,28.33,-47.18,3
+"Office Star Swivel Stool, Adjustable",Furniture,Chairs,14249.66,-1673.24,15.67,-11.74,30
+"Canon Fax Machine, Color",Technology,Copiers,10114.94,-1629.58,25.07,-16.11,17
+"Barricks Computer Table, Fully Assembled",Furniture,Tables,10620.22,-1586.27,29.1,-14.94,10
+"Breville Microwave, Silver",Office Supplies,Appliances,10317.92,-1577.42,23.4,-15.29,10
+"Hon Conference Table, Adjustable Height",Furniture,Tables,15018.87,-1570.57,34.7,-10.46,10
+"Harbour Creations Rocking Chair, Set of Two",Furniture,Chairs,7300.73,-1478.0,24.35,-20.24,20
+"Sharp Fax Machine, Digital",Technology,Copiers,13947.33,-1455.75,12.6,-10.44,16
+"Lesro Training Table, Adjustable Height",Furniture,Tables,4223.83,-1443.98,34.57,-34.19,7
+"Barricks Coffee Table, Rectangular",Furniture,Tables,3140.23,-1426.88,43.5,-45.44,4
+"Logitech Router, Bluetooth",Technology,Accessories,12264.6,-1415.64,17.95,-11.54,21
+"Smead File Cart, Blue",Office Supplies,Storage,12840.05,-1381.0,20.19,-10.76,42
+"Hon Round Table, with Bottom Storage",Furniture,Tables,6362.89,-1324.65,27.0,-20.82,5
 Martin Yale Chadless Opener Electric Letter Opener,Office Supplies,Supplies,16656.2,-1299.18,10.0,-7.8,6
+"Lesro Wood Table, Fully Assembled",Furniture,Tables,5556.47,-1296.14,50.33,-23.33,6
+"Safco Classic Bookcase, Pine",Furniture,Bookcases,21799.2,-1273.49,11.76,-5.84,17
+"Belkin Memory Card, USB",Technology,Accessories,6816.47,-1264.93,14.96,-18.56,24
+"Chromcraft Round Table, Adjustable Height",Furniture,Tables,8312.69,-1214.05,33.36,-14.6,11
 Balt Solid Wood Round Tables,Furniture,Tables,6518.75,-1201.06,20.0,-18.42,4
 "Riverside Furniture Oval Coffee Table, Oval End Table, End Table with Drawer",Furniture,Tables,4446.18,-1147.4,30.0,-25.81,5
+"Epson Printer, White",Technology,Machines,8168.5,-1129.47,18.71,-13.83,14
+"KitchenAid Refrigerator, Red",Office Supplies,Appliances,7048.0,-1087.9,34.5,-15.44,6
+"Ikea Floating Shelf Set, Traditional",Furniture,Bookcases,12397.91,-1033.03,17.17,-8.33,29
+"Fellowes File Cart, Single Width",Office Supplies,Storage,14811.2,-1024.21,15.57,-6.92,42
+"Apple Signal Booster, Full Size",Technology,Phones,7568.31,-1024.15,18.64,-13.53,22
+"Ikea Classic Bookcase, Pine",Furniture,Bookcases,16631.41,-1000.25,16.68,-6.01,19
 Hon 2090 “Pillow Soft” Series Mid Back Swivel/Tilt Chairs,Furniture,Chairs,5282.42,-989.05,21.67,-18.72,6
+"Barricks Coffee Table, Adjustable Height",Furniture,Tables,5977.63,-978.7,36.36,-16.37,11
 Bretford “Just In Time” Height-Adjustable Multi-Task Work Tables,Furniture,Tables,5634.9,-964.19,22.5,-17.11,4
+"Office Star Rocking Chair, Adjustable",Furniture,Chairs,11630.22,-949.15,21.47,-8.16,30
+"Okidata Printer, White",Technology,Machines,12867.73,-932.69,17.28,-7.25,18
+"Hon Computer Table, Adjustable Height",Furniture,Tables,3747.05,-911.17,21.67,-24.32,3
+"Chromcraft Conference Table, Rectangular",Furniture,Tables,10210.82,-910.94,21.25,-8.92,8
+"Rogers Lockers, Wire Frame",Office Supplies,Storage,14927.39,-901.57,23.66,-6.04,32
+"Office Star Steel Folding Chair, Red",Furniture,Chairs,6913.71,-889.71,18.19,-12.87,31
+"Barricks Coffee Table, Fully Assembled",Furniture,Tables,3190.27,-885.08,46.17,-27.74,6
+"Barricks Computer Table, Adjustable Height",Furniture,Tables,3098.09,-876.57,48.75,-28.29,4
+"SAFCO Executive Leather Armchair, Adjustable",Furniture,Chairs,24210.44,-862.18,16.31,-3.56,26
+"Canon Copy Machine, Digital",Technology,Copiers,12183.76,-861.8,20.03,-7.07,19
 "Bevis Oval Conference Table, Walnut",Furniture,Tables,6942.07,-856.01,27.5,-12.33,8
+"Lesro Training Table, Fully Assembled",Furniture,Tables,3483.78,-842.55,24.5,-24.18,6
+"Eldon Shelving, Single Width",Office Supplies,Storage,5355.99,-834.3,16.03,-15.58,38
+"Boston Sketch Pad, Water Color",Office Supplies,Art,4167.6,-826.53,20.43,-19.83,35
 Tennsco Single-Tier Lockers,Office Supplies,Storage,9158.3,-825.75,7.5,-9.02,8
+"Okidata Printer, Red",Technology,Machines,5233.31,-815.93,23.18,-15.59,11
+"Deflect-O Clock, Black",Furniture,Furnishings,3312.24,-804.53,25.08,-24.29,24
+"Hon Coffee Table, with Bottom Storage",Furniture,Tables,3743.42,-784.84,29.29,-20.97,7
+"Dania Floating Shelf Set, Traditional",Furniture,Bookcases,6479.33,-765.91,19.24,-11.82,17
 O'Sullivan Living Dimensions 5-Shelf Bookcases,Furniture,Bookcases,3420.77,-755.75,24.0,-22.09,6
+"Tenex Shelving, Blue",Office Supplies,Storage,4410.52,-725.5,19.6,-16.45,40
+"Okidata Card Printer, Wireless",Technology,Machines,3885.84,-722.28,23.64,-18.59,11
+"Logitech Memory Card, Erganomic",Technology,Accessories,6265.35,-717.61,20.11,-11.45,18
+"Lesro Wood Table, Adjustable Height",Furniture,Tables,6480.76,-711.04,34.0,-10.97,5
+"Panasonic Card Printer, White",Technology,Machines,3889.53,-693.56,36.5,-17.83,10
+"Hamilton Beach Microwave, White",Office Supplies,Appliances,11587.1,-692.66,8.93,-5.98,15
+"Barricks Training Table, Fully Assembled",Furniture,Tables,3266.98,-681.23,39.17,-20.85,6
 Hon 94000 Series Round Tables,Furniture,Tables,7404.5,-681.21,16.0,-9.2,5
 "Riverside Palais Royal Lawyers Bookcase, Royale Cherry Finish",Furniture,Bookcases,15610.97,-669.54,23.4,-4.29,5
+"Lesro Wood Table, Rectangular",Furniture,Tables,3867.25,-666.5,20.83,-17.23,6
+"Chromcraft Wood Table, Rectangular",Furniture,Tables,4724.09,-665.75,39.0,-14.09,3
+"Epson Card Printer, Wireless",Technology,Machines,6881.28,-664.96,25.8,-9.66,15
+"Motorola Speaker Phone, VoIP",Technology,Phones,7554.1,-642.83,11.0,-8.51,20
+"Chromcraft Round Table, Rectangular",Furniture,Tables,3252.69,-641.31,23.33,-19.72,3
 "SAFCO Commercial Wire Shelving, Black",Office Supplies,Storage,4199.46,-635.44,14.0,-15.13,10
+"Barricks Training Table, Rectangular",Furniture,Tables,5325.57,-632.07,35.22,-11.87,9
+"Okidata Printer, Durable",Technology,Machines,4742.93,-626.07,32.91,-13.2,11
+"Office Star Swivel Stool, Set of Two",Furniture,Chairs,10107.43,-613.73,15.95,-6.07,21
+"Konica Card Printer, Durable",Technology,Machines,4709.46,-612.73,25.0,-13.01,10
 "Chromcraft Bull-Nose Wood 48"" x 96"" Rectangular Conference Tables",Furniture,Tables,4297.64,-611.59,33.33,-14.23,6
+"HP Fax Machine, Digital",Technology,Copiers,14043.11,-600.85,7.2,-4.28,18
 Hon Racetrack Conference Tables,Furniture,Tables,3963.9,-598.52,28.33,-15.1,6
+"Brother Wireless Fax, Color",Technology,Copiers,18479.9,-585.32,9.37,-3.17,18
+"Fellowes Trays, Blue",Office Supplies,Storage,4782.69,-575.07,17.11,-12.02,35
+"Hewlett Copy Machine, Laser",Technology,Copiers,12926.24,-573.58,17.14,-4.44,20
+"Binney & Smith Sketch Pad, Fluorescent",Office Supplies,Art,4549.28,-572.67,17.08,-12.59,38
+"Rogers Trays, Single Width",Office Supplies,Storage,3994.28,-571.65,18.13,-14.31,23
+"Office Star Steel Folding Chair, Black",Furniture,Chairs,8962.52,-566.44,17.14,-6.32,29
+"Cuisinart Microwave, Black",Office Supplies,Appliances,6988.93,-551.63,17.92,-7.89,12
 Bretford CR4500 Series Slim Rectangular Table,Furniture,Tables,7242.77,-532.76,26.25,-7.36,8
 Tenex Antistatic Computer Chair Mats,Furniture,Furnishings,3317.01,-530.04,23.33,-15.98,6
+"Deflect-O Frame, Duo Pack",Furniture,Furnishings,4879.63,-527.33,14.28,-10.81,18
+"Safco Library with Doors, Metal",Furniture,Bookcases,11759.24,-525.94,21.42,-4.47,12
+"Ikea Corner Shelving, Metal",Furniture,Bookcases,4449.93,-523.74,12.93,-11.77,15
+"Fellowes File Cart, Industrial",Office Supplies,Storage,10517.97,-520.33,18.75,-4.95,32
+"Sauder Library with Doors, Traditional",Furniture,Bookcases,15697.72,-519.85,14.47,-3.31,15
+"Ikea 3-Shelf Cabinet, Pine",Furniture,Bookcases,5150.56,-519.47,18.47,-10.09,17
+"Lesro Conference Table, Fully Assembled",Furniture,Tables,7029.89,-518.48,23.4,-7.38,5
 "Global Wood Trimmed Manager's Task Chair, Khaki",Furniture,Chairs,4166.88,-503.12,22.86,-12.07,14
+"Tenex Shelving, Wire Frame",Office Supplies,Storage,5566.43,-501.66,18.92,-9.01,36
+"Sanford Canvas, Water Color",Office Supplies,Art,3667.71,-497.59,23.33,-13.57,33
 "Office Star - Contemporary Task Swivel chair with Loop Arms, Charcoal",Furniture,Chairs,3680.54,-491.18,18.89,-13.35,9
+"StarTech Printer, Durable",Technology,Machines,5036.1,-479.55,22.14,-9.52,7
 "Global High-Back Leather Tilter, Burgundy",Furniture,Chairs,5436.16,-474.74,18.57,-8.73,14
 SAFCO Boltless Steel Shelving,Office Supplies,Storage,4704.7,-470.47,10.0,-10.0,10
+"HP Wireless Fax, Laser",Technology,Copiers,17577.77,-465.14,12.06,-2.65,20
 GBC ProClick 150 Presentation Binding System,Office Supplies,Binders,3223.0,-461.33,50.0,-14.31,5
+"Hamilton Beach Refrigerator, Black",Office Supplies,Appliances,14692.06,-458.19,14.0,-3.12,14
 Chromcraft Rectangular Conference Tables,Furniture,Tables,4952.67,-450.24,32.22,-9.09,9
+"Cisco Signal Booster, Cordless",Technology,Phones,8983.81,-449.24,11.0,-5.0,17
+"Brother Ink, Laser",Technology,Copiers,9888.25,-428.71,14.15,-4.34,20
+"Bevis Coffee Table, Adjustable Height",Furniture,Tables,3373.5,-426.42,21.4,-12.64,5
+"Apple Signal Booster, with Caller ID",Technology,Phones,10212.31,-425.02,17.52,-4.16,23
+"Okidata Card Printer, Durable",Technology,Machines,4492.0,-423.21,15.7,-9.42,10
+"Apple Speaker Phone, Cordless",Technology,Phones,6186.82,-406.1,19.74,-6.56,23
 "Chromcraft 48"" x 96"" Racetrack Double Pedestal Table",Furniture,Tables,5098.18,-404.01,31.67,-7.92,6
 Hon 2111 Invitation Series Corner Table,Furniture,Tables,3140.55,-401.99,20.0,-12.8,4
+"Hamilton Beach Stove, Black",Office Supplies,Appliances,16148.36,-397.85,17.6,-2.46,15
+"Novimex Steel Folding Chair, Set of Two",Furniture,Chairs,5971.61,-397.51,17.57,-6.66,28
+"Safco Stackable Bookrack, Traditional",Furniture,Bookcases,5845.07,-397.18,25.12,-6.8,17
+"Ikea 3-Shelf Cabinet, Metal",Furniture,Bookcases,6424.76,-394.72,16.38,-6.14,21
+"Hon Executive Leather Armchair, Red",Furniture,Chairs,19802.77,-392.93,15.11,-1.98,18
 "Iceberg OfficeWorks 42"" Round Tables",Furniture,Tables,3457.44,-392.55,20.0,-11.35,7
+"Rogers Shelving, Single Width",Office Supplies,Storage,4024.65,-377.97,18.04,-9.39,27
+"Samsung Signal Booster, with Caller ID",Technology,Phones,3562.27,-349.86,28.14,-9.82,14
+"Nokia Speaker Phone, VoIP",Technology,Phones,6958.95,-342.45,14.47,-4.92,19
+"Motorola Signal Booster, VoIP",Technology,Phones,6171.35,-340.51,21.85,-5.52,20
+"Novimex Rocking Chair, Black",Furniture,Chairs,7219.7,-339.7,22.73,-4.71,22
+"Deflect-O Frame, Erganomic",Furniture,Furnishings,7106.36,-337.03,14.17,-4.74,24
 Fellowes Officeware Wire Shelving,Office Supplies,Storage,4509.47,-332.37,7.27,-7.37,11
 Bretford Rectangular Conference Table Tops,Furniture,Tables,12995.29,-327.23,24.58,-2.52,12
+"Hon Steel Folding Chair, Black",Furniture,Chairs,3684.88,-326.65,22.5,-8.86,24
+"Bevis Training Table, Adjustable Height",Furniture,Tables,4547.3,-316.16,31.17,-6.95,6
+"Eldon Frame, Erganomic",Furniture,Furnishings,4349.74,-310.79,15.0,-7.14,10
+"Chromcraft Wood Table, with Bottom Storage",Furniture,Tables,4149.67,-310.65,35.0,-7.49,5
+"Advantus Frame, Black",Furniture,Furnishings,4881.87,-308.76,21.11,-6.32,18
 Ibico Hi-Tech Manual Binding System,Office Supplies,Binders,5398.32,-304.99,42.73,-5.65,11
-Hon Rectangular Conference Tables,Furniture,Tables,3481.51,-295.81,32.5,-8.5,4
+"Hon Wood Table, with Bottom Storage",Furniture,Tables,6446.8,-304.88,16.67,-4.73,3
+"Hon Round Table, Rectangular",Furniture,Tables,3423.2,-303.11,20.0,-8.85,2
+"Dania Floating Shelf Set, Pine",Furniture,Bookcases,3641.6,-302.06,20.36,-8.29,11
+"SAFCO Chairmat, Adjustable",Furniture,Chairs,4317.67,-301.82,18.45,-6.99,33
+Hon Rectangular Conference Tables,Furniture,Tables,3481.51,-295.82,32.5,-8.5,4
+"Office Star Bag Chairs, Set of Two",Furniture,Chairs,5315.75,-291.58,20.97,-5.49,30
+"Smead Lockers, Wire Frame",Office Supplies,Storage,18647.66,-286.93,10.12,-1.54,34
+"Ikea Library with Doors, Pine",Furniture,Bookcases,22536.07,-277.95,26.32,-1.23,28
+"Okidata Inkjet, Durable",Technology,Machines,9434.68,-275.24,7.08,-2.92,13
+"Breville Stove, White",Office Supplies,Appliances,5800.15,-270.63,19.62,-4.67,8
 High Speed Automatic Electric Letter Opener,Office Supplies,Supplies,17030.31,-262.0,6.67,-1.54,3
+"Canon Personal Copier, High-Speed",Technology,Copiers,9083.11,-260.01,12.03,-2.86,21
+"Barricks Wood Table, Adjustable Height",Furniture,Tables,3858.79,-258.14,43.33,-6.69,6
+"SanDisk Cards & Envelopes, Recycled",Office Supplies,Paper,3118.9,-257.62,11.39,-8.26,23
+"Wilson Jones Binding Machine, Durable",Office Supplies,Binders,4783.1,-256.1,16.27,-5.35,41
 KI Adjustable-Height Table,Furniture,Tables,4552.64,-248.48,23.61,-5.46,18
+"Logitech Memory Card, Bluetooth",Technology,Accessories,4996.7,-240.66,23.33,-4.82,18
 Hon 5100 Series Wood Tables,Furniture,Tables,5965.09,-238.6,21.43,-4.0,7
+"Smead File Cart, Single Width",Office Supplies,Storage,25397.17,-237.67,16.96,-0.94,77
+"Bevis Wood Table, Rectangular",Furniture,Tables,5179.01,-233.83,16.25,-4.52,4
+"BIC Canvas, Blue",Office Supplies,Art,6172.46,-232.89,8.39,-3.77,33
+"Sanford Sketch Pad, Blue",Office Supplies,Art,4019.98,-230.93,15.06,-5.74,32
+"Okidata Receipt Printer, Durable",Technology,Machines,4900.28,-230.14,15.5,-4.7,14
+"Harbour Creations Chairmat, Set of Two",Furniture,Chairs,4550.54,-227.74,20.56,-5.0,25
+"Epson Inkjet, Wireless",Technology,Machines,16423.35,-226.53,20.45,-1.38,20
+"Cisco Audio Dock, Cordless",Technology,Phones,8102.58,-217.47,9.71,-2.68,17
+"Safco Stackable Bookrack, Mobile",Furniture,Bookcases,3933.07,-217.16,17.14,-5.52,14
+"Eldon Shelving, Industrial",Office Supplies,Storage,5033.44,-216.16,16.22,-4.29,37
+"BIC Canvas, Water Color",Office Supplies,Art,4615.24,-215.54,8.3,-4.67,30
 "Bush Heritage Pine Collection 5-Shelf Bookcase, Albany Pine Finish, *Special Order",Furniture,Bookcases,3626.01,-208.65,23.38,-5.75,8
+"Bush Library with Doors, Traditional",Furniture,Bookcases,15260.15,-205.99,17.45,-1.35,22
+"Advantus Frame, Durable",Furniture,Furnishings,6335.79,-205.76,18.86,-3.25,22
+"Samsung Smart Phone, Cordless",Technology,Phones,48653.46,-198.09,12.54,-0.41,26
 High-Back Leather Manager's Chair,Furniture,Chairs,4770.63,-197.58,16.67,-4.14,9
+"Advantus Photo Frame, Black",Furniture,Furnishings,3854.82,-194.91,16.52,-5.06,21
 "Bevis Round Bullnose 29"" High Table Top",Furniture,Tables,4544.93,-192.19,26.0,-4.23,5
 Chromcraft Round Conference Tables,Furniture,Tables,8209.06,-189.98,25.77,-2.31,13
+"Okidata Printer, Wireless",Technology,Machines,10164.52,-186.43,19.35,-1.83,17
+"Nokia Office Telephone, with Caller ID",Technology,Phones,3914.1,-186.3,20.08,-4.76,26
+"Belkin Numeric Keypad, Erganomic",Technology,Accessories,3307.53,-185.25,17.33,-5.6,21
+"Okidata Receipt Printer, Red",Technology,Machines,4928.46,-179.28,12.5,-3.64,10
+"Samsung Headset, with Caller ID",Technology,Phones,4227.79,-175.17,19.14,-4.14,21
+"Avery Binding Machine, Clear",Office Supplies,Binders,6479.28,-167.44,14.22,-2.58,46
 Office Impressions Heavy Duty Welded Shelving & Multimedia Storage Drawers,Office Supplies,Storage,3178.13,-167.27,4.0,-5.26,5
 Bevis 44 x 96 Conference Tables,Furniture,Tables,3253.22,-164.72,18.0,-5.06,5
+"Lesro Round Table, Fully Assembled",Furniture,Tables,3723.07,-154.31,46.4,-4.14,5
+"Epson Card Printer, White",Technology,Machines,5682.71,-152.04,20.15,-2.68,13
+"Okidata Inkjet, White",Technology,Machines,11329.5,-144.12,14.33,-1.27,15
+"Breville Microwave, Red",Office Supplies,Appliances,14539.4,-142.51,13.25,-0.98,16
+"SAFCO Bag Chairs, Red",Furniture,Chairs,3349.89,-136.19,16.16,-4.07,32
+"Sharp Fax Machine, Color",Technology,Copiers,16067.02,-133.67,13.96,-0.83,21
+"Sauder Stackable Bookrack, Traditional",Furniture,Bookcases,3666.75,-131.11,17.69,-3.58,13
 Samsung Galaxy Note 2,Technology,Phones,4507.9,-128.8,30.0,-2.86,2
+"Hoover Blender, White",Office Supplies,Appliances,4063.68,-128.48,12.14,-3.16,14
+"StarTech Card Printer, Wireless",Technology,Machines,4803.63,-128.13,34.91,-2.67,11
+"Panasonic Card Printer, Red",Technology,Machines,3189.16,-127.82,9.57,-4.01,7
 "Atlantic Metals Mobile 4-Shelf Bookcases, Custom Colors",Furniture,Bookcases,5184.08,-126.44,26.67,-2.44,6
+"HP Fax Machine, Color",Technology,Copiers,6483.49,-123.85,12.31,-1.91,15
+"Bush 3-Shelf Cabinet, Mobile",Furniture,Bookcases,5260.79,-113.04,17.6,-2.15,20
+"Bevis Computer Table, Adjustable Height",Furniture,Tables,3674.27,-105.07,15.0,-2.86,4
+"Dania 3-Shelf Cabinet, Mobile",Furniture,Bookcases,7227.29,-100.27,6.84,-1.39,19
+"Novimex Rocking Chair, Red",Furniture,Chairs,7596.65,-93.01,14.3,-1.22,23
+"Tenex Lockers, Single Width",Office Supplies,Storage,17129.34,-88.58,15.63,-0.52,30
+"Harbour Creations Steel Folding Chair, Red",Furniture,Chairs,3636.29,-79.29,23.52,-2.18,21
+"HP Ink, Laser",Technology,Copiers,7847.01,-78.63,17.89,-1.0,22
+"Stiletto Shears, Steel",Office Supplies,Supplies,3181.83,-76.37,12.36,-2.4,22
+"Harbour Creations Swivel Stool, Adjustable",Furniture,Chairs,12236.7,-75.75,16.57,-0.62,28
 "Office Impressions End Table, 20-1/2""H x 24""W x 20""D",Furniture,Tables,5801.82,-66.83,18.0,-1.15,5
+"StarTech Inkjet, Wireless",Technology,Machines,15639.12,-66.38,9.22,-0.42,23
+"Fiskars Trimmer, Serrated",Office Supplies,Supplies,3249.22,-63.44,14.54,-1.95,28
+"Tenex Frame, Duo Pack",Furniture,Furnishings,5018.56,-60.75,16.5,-1.21,18
+"Hon Rocking Chair, Set of Two",Furniture,Chairs,11058.33,-57.47,20.06,-0.52,31
+"Panasonic Printer, Red",Technology,Machines,8005.87,-57.27,14.5,-0.72,10
+"Rogers Folders, Industrial",Office Supplies,Storage,3287.4,-37.06,11.03,-1.13,38
 "Tennsco Stur-D-Stor Boltless Shelving, 5 Shelves, 24"" Deep, Sand",Office Supplies,Storage,4384.04,-36.53,2.86,-0.83,7
+"Lesro Round Table, with Bottom Storage",Furniture,Tables,3661.28,-33.28,33.33,-0.91,3
+"Breville Coffee Grinder, White",Office Supplies,Appliances,3363.4,-30.2,9.65,-0.9,17
+"Novimex Steel Folding Chair, Adjustable",Furniture,Chairs,4617.24,-27.9,15.71,-0.6,21
+"Sharp Fax and Copier, High-Speed",Technology,Copiers,8913.57,-24.34,10.85,-0.27,20
+"Harbour Creations Rocking Chair, Red",Furniture,Chairs,5379.57,-13.53,18.67,-0.25,15
+"Panasonic Inkjet, White",Technology,Machines,10401.75,-12.63,15.45,-0.12,11
 Carina Double Wide Media Storage Towers in Natural & Black,Office Supplies,Storage,3028.65,-3.24,6.67,-0.11,12

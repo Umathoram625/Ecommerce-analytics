@@ -35,9 +35,7 @@ class ApiClient {
     async post(endpoint, data, isFormData = false) {
         const url = `${this.baseUrl}${endpoint}`;
         try {
-            const options = {
-                method: 'POST'
-            };
+            const options = { method: 'POST' };
             if (isFormData) {
                 options.body = data;
             } else {
@@ -60,25 +58,43 @@ class ApiClient {
         }
     }
 
-    async fetchKPIs(filters) { return this.get('/analytics/kpis', filters); }
-    async fetchTrends(filters) { return this.get('/analytics/trends', filters); }
-    async fetchCategories(filters) { return this.get('/analytics/categories', filters); }
-    async fetchProducts(params) { return this.get('/analytics/products', params); }
-    async fetchRegional(filters) { return this.get('/analytics/regional', filters); }
-    async fetchStates(filters) { return this.get('/analytics/states', filters); }
-    async fetchCustomers(filters) { return this.get('/analytics/customers', filters); }
-    async fetchRFM(filters) { return this.get('/analytics/rfm', filters); }
-    async fetchForecast(params) { return this.get('/forecast', params); }
-    async fetchFilterOptions() { return this.get('/filters'); }
-    async fetchHealth() { return this.get('/health'); }
+    // Dynamic Analytics Endpoints
+    getSummary(params) { return this.get('/analytics/summary', params); }
+    getSalesTrend(params) { return this.get('/analytics/sales-trend', params); }
+    getProfitTrend(params) { return this.get('/analytics/profit-trend', params); }
+    getCategoryPerformance(params) { return this.get('/analytics/category-performance', params); }
+    getSubCategoryPerformance(params) { return this.get('/analytics/subcategory-performance', params); }
+    getTopProducts(params) { return this.get('/analytics/top-products', params); }
+    getLossMakingProducts(params) { return this.get('/analytics/loss-making-products', params); }
+    getCustomerPerformance(params) { return this.get('/analytics/customer-performance', params); }
+    getTopCustomers(params) { return this.get('/analytics/top-customers', params); }
+    getCustomerSegments(params) { return this.get('/analytics/customer-segments', params); }
+    getRFM(params) { return this.get('/analytics/rfm', params); }
+    getGeography(params) { return this.get('/analytics/geography', params); }
+    getShipping(params) { return this.get('/analytics/shipping', params); }
+    getDiscountImpact(params) { return this.get('/analytics/discount-impact', params); }
+    getOrders(params) { return this.get('/analytics/orders', params); }
+    getReturns(params) { return this.get('/analytics/returns', params); }
+    getInsights(params) { return this.get('/analytics/insights', params); }
 
-    async uploadCSV(formData) { return this.post('/dataset/upload', formData, true); }
-    async resetDataset() { return this.post('/dataset/reset', {}); }
-    async fetchAuditLogs() { return this.get('/dataset/audit-logs'); }
+    // Dynamic Filters & Health
+    getFilters() { return this.get('/filters'); }
+    getHealth() { return this.get('/health'); }
 
-    getExportUrl(filters) {
-        return `${this.baseUrl}/dataset/export${this.buildQueryString(filters)}`;
+    // Forecasting
+    getForecast(metric = 'sales', horizon = 6) {
+        return this.get('/forecast', { metric, horizon });
+    }
+
+    // Dataset Management
+    uploadDataset(formData, replace = true) {
+        return this.post(`/dataset/upload?replace_existing=${replace}`, formData, true);
+    }
+    resetDataset() { return this.post('/dataset/reset', {}); }
+    getAuditLogs() { return this.get('/dataset/audit-logs'); }
+    getExportUrl(params) {
+        return `${this.baseUrl}/dataset/export${this.buildQueryString(params)}`;
     }
 }
 
-const api = new ApiClient();
+window.api = new ApiClient();

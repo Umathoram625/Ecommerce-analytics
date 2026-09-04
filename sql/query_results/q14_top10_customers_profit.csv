@@ -1,11 +1,11 @@
 customer_id,customer_name,segment,total_orders,total_spend,total_profit,profit_margin_pct,profit_rank
-TC-20980,Tamara Chand,Corporate,5,19052.22,8981.32,47.14,1
-RB-19360,Raymond Buch,Consumer,6,15117.34,6976.1,46.15,2
-SC-20095,Sanjit Chand,Consumer,9,14142.33,5757.41,40.71,3
-HL-15040,Hunter Lopez,Consumer,6,12873.3,5622.43,43.68,4
-AB-10105,Adrian Barton,Consumer,10,14473.57,5444.81,37.62,5
-TA-21385,Tom Ashbrook,Home Office,4,14595.62,4703.79,32.23,6
-CM-12385,Christopher Martinez,Consumer,4,8954.02,3899.89,43.55,7
-KD-16495,Keith Dawkins,Corporate,12,8181.26,3038.63,37.14,8
-AR-10540,Andy Reiter,Consumer,6,6608.45,2884.62,43.65,9
-DR-12940,Daniel Raglin,Home Office,8,8350.87,2869.08,34.36,10
+TC-20980,Tamara Chand,Corporate,28,34218.27,8787.47,25.68,1
+RB-19360,Raymond Buch,Consumer,25,29197.63,8523.95,29.19,2
+SC-20095,Sanjit Chand,Consumer,28,25602.61,8106.22,31.66,3
+BE-11335,Bill Eplett,Home Office,37,27158.02,7790.7,28.69,4
+HL-15040,Hunter Lopez,Consumer,20,29664.23,7657.5,25.81,5
+AB-10105,Adrian Barton,Consumer,33,22966.78,6912.61,30.1,6
+SP-20920,Susan Pistek,Consumer,28,28124.21,6649.63,23.64,7
+HM-14860,Harry Marie,Corporate,37,27434.17,6544.89,23.86,8
+TA-21385,Tom Ashbrook,Home Office,25,35668.12,6274.99,17.59,9
+SE-20110,Sanjit Engle,Consumer,36,29532.63,5863.62,19.85,10
