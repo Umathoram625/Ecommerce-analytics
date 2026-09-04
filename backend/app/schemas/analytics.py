@@ -136,3 +136,6 @@ class UploadResponse(BaseModel):
     message: str
     duration_seconds: float
     columns_detected: List[str]
+    column_mappings: Dict[str, str] = {}
+    warnings: List[str] = []
+
