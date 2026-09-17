@@ -12,30 +12,197 @@ class DataCleaningService:
     """Production-grade universal data validation, normalization, and bulk ingestion service."""
 
     COLUMN_SYNONYMS = {
-        "order_id": ["order_id", "order id", "orderid", "trade_id", "transaction_id", "invoice_no", "invoiceno", "id", "order_no"],
-        "order_date": ["order_date", "order date", "orderdate", "trade_date", "date", "timestamp", "datetime", "invoice_date", "invoicedate"],
-        "ship_date": ["ship_date", "ship date", "shipdate", "shipping_date"],
-        "ship_mode": ["ship_mode", "ship mode", "shipmode", "delivery_method"],
-        "customer_id": ["customer_id", "customer id", "customerid", "client_id", "user_id"],
-        "customer_name": ["customer_name", "customer name", "customername", "client_name", "user_name"],
-        "segment": ["segment", "customer_segment", "customer segment"],
-        "country": ["country", "nation"],
-        "city": ["city", "town"],
-        "state": ["state", "province"],
-        "postal_code": ["postal_code", "postal code", "postalcode", "zip", "zip_code"],
-        "market": ["market", "trade_market", "continent"],
-        "region": ["region", "zone", "territory"],
-        "product_id": ["product_id", "product id", "productid", "item_id", "sku", "stock_code"],
-        "category": ["category", "product_category", "dept", "sector"],
-        "sub_category": ["sub_category", "sub-category", "sub category", "subcategory"],
-        "product_name": ["product_name", "product name", "productname", "item_name", "title", "description"],
-        "sales": ["sales", "revenue", "sale_amount", "amount", "total_sales", "turnover", "total_revenue"],
-        "quantity": ["quantity", "qty", "units", "volume"],
-        "discount": ["discount", "disc", "discount_rate"],
-        "profit": ["profit", "net_profit", "margin_amount", "earnings", "income", "pnl"],
-        "shipping_cost": ["shipping_cost", "shippingcost", "freight"],
-        "order_priority": ["order_priority", "orderpriority", "priority"]
-    }
+    "order_id": [
+        "order_id",
+        "order id",
+        "orderid",
+        "invoice_id",
+        "invoice id",
+        "invoice_no",
+        "invoice no",
+        "transaction_id",
+        "transaction id",
+        "id"
+    ],
+
+    "order_date": [
+        "order_date",
+        "order date",
+        "orderdate",
+        "trade_date",
+        "date",
+        "timestamp",
+        "datetime",
+        "invoice_date",
+        "invoice date"
+    ],
+
+    "ship_date": [
+        "ship_date",
+        "ship date",
+        "shipdate",
+        "shipping_date"
+    ],
+
+    "ship_mode": [
+        "ship_mode",
+        "ship mode",
+        "shipmode",
+        "delivery_method"
+    ],
+
+    "customer_id": [
+        "customer_id",
+        "customer id",
+        "customerid",
+        "client_id",
+        "user_id"
+    ],
+
+    "customer_name": [
+        "customer_name",
+        "customer name",
+        "customername",
+        "client_name",
+        "user_name"
+    ],
+
+    "segment": [
+    "segment",
+    "customer_segment",
+    "customer segment"
+    ],
+     "customer_type": [
+    "customer_type",
+    "customer type",
+    "customer"
+    ],
+
+    "country": [
+        "country",
+        "nation"
+    ],
+
+    "city": [
+        "city",
+        "town"
+    ],
+
+    "state": [
+        "state",
+        "province"
+    ],
+
+    "postal_code": [
+        "postal_code",
+        "postal code",
+        "postalcode",
+        "zip",
+        "zip_code"
+    ],
+
+    "market": [
+        "market",
+        "trade_market",
+        "continent"
+    ],
+
+    "region": [
+        "region",
+        "zone",
+        "territory",
+        "branch"
+    ],
+
+    "product_id": [
+        "product_id",
+        "product id",
+        "productid",
+        "item_id",
+        "sku",
+        "stock_code"
+    ],
+
+    "category": [
+        "category",
+        "product_category",
+        "product category",
+        "dept",
+        "sector",
+        "product_line",
+        "product line"
+    ],
+
+    "sub_category": [
+        "sub_category",
+        "sub-category",
+        "sub category",
+        "subcategory"
+    ],
+
+    "product_name": [
+        "product_name",
+        "product name",
+        "productname",
+        "item_name",
+        "title",
+        "description"
+    ],
+
+    "sales": [
+        "sales",
+        "revenue",
+        "sale_amount",
+        "amount",
+        "total_sales",
+        "turnover",
+        "total_revenue",
+        "total"
+    ],
+
+    "quantity": [
+        "quantity",
+        "qty",
+        "units",
+        "volume"
+    ],
+        "unit_price": [
+    "unit_price",
+    "unit price",
+    "unitprice",
+    "price"
+    ],
+
+    "discount": [
+        "discount",
+        "disc",
+        "discount_rate"
+    ],
+
+    "profit": [
+        "profit",
+        "net_profit",
+        "margin_amount",
+        "earnings",
+        "income",
+        "pnl",
+        "gross_income",
+        "gross income"
+    ],
+
+    "shipping_cost": [
+        "shipping_cost",
+        "shippingcost",
+        "freight"
+    ],
+
+    "order_priority": [
+        "order_priority",
+        "order priority",
+        "orderpriority",
+        "priority"
+    ]
+}
 
     @classmethod
     def clean_and_transform_dataframe(cls, df_raw: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, Any]]:
